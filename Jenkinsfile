@@ -14,10 +14,16 @@ pipeline {
             sh 'npm install'
           }
         }
-        stage('Test') {
+        stage('Clean') {
           environment {
             CI = 'true'
           }
+          steps {
+            sh '''ls -l
+sudo rm -rf ./*'''
+          }
+        }
+        stage('Test') {
           steps {
             sh './jenkins/scripts/test.sh'
           }
