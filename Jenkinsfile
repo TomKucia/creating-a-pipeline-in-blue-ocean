@@ -19,8 +19,7 @@ pipeline {
             CI = 'true'
           }
           steps {
-            sh '''ls -l
-sudo rm -rf ./*'''
+            sh 'ls -l'
           }
         }
         stage('Test') {
